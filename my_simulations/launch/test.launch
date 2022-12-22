@@ -1,0 +1,12 @@
+<launch>
+	<arg name="model" />
+
+	<param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_burger.urdf.xacro" />
+	
+    <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+        <param name="use_gui" value="True"/>
+	
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+	
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find my_simulations)/launch/urdf.rviz" />
+</launch>
